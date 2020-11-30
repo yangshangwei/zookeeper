@@ -92,5 +92,24 @@ public class BaseOperationStandAloneModeTest extends  StandAloneBaseTest{
         byte[] data = getZooKeeper().getData(NODE_NAME, watcher, null);
         log.info("data {}" , new String(data));
     }
+
+
+
+
+
+    @SneakyThrows
+    @Test
+    public void testCreateAsyn(){
+        getZooKeeper().create(NODE_NAME, "DATA_VALUE".getBytes(),
+                ZooDefs.Ids.OPEN_ACL_UNSAFE,
+                CreateMode.PERSISTENT,
+                (rc, path, ctx, name) -> {
+                    String currentThreadName = Thread.currentThread().getName();
+                    log.info("currentThreadName {} , rc {} , path {} , ctx {} , name {} " , currentThreadName, rc , path ,ctx ,name );
+                }, "ARTISAN");
+
+        byte[] data = getZooKeeper().getData(NODE_NAME, null, null);
+        log.info("data {}" , new String(data));
+    }
 }
     
