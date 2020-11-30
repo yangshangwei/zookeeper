@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public abstract class StandAloneBaseTest {
 
-    private static final String ZK_ADDRESS = "192.168.126.131:2181";
+    private static final String ZK_ADDRESS = "192.168.126.133:2181";
 
     private static final int SESSION_TIMEOUT = 30_000;
 
