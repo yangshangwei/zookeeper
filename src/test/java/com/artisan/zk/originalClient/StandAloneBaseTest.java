@@ -20,10 +20,6 @@ public abstract class StandAloneBaseTest {
 
     private static CountDownLatch countDownLatch = new CountDownLatch(1);
 
-    public static ZooKeeper getZooKeeper() {
-        return zooKeeper;
-    }
-
     private static ZooKeeper zooKeeper ;
 
     private static Watcher watcher = event -> {
@@ -52,5 +48,16 @@ public abstract class StandAloneBaseTest {
         }
     }
 
+    public static ZooKeeper getZooKeeper() {
+        return zooKeeper;
+    }
+
+    protected     String getConnectStr(){
+        return ZK_ADDRESS;
+    }
+
+    protected   int getSessionTimeout() {
+        return SESSION_TIMEOUT;
+    }
 }
     
