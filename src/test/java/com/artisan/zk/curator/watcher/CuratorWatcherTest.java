@@ -25,8 +25,6 @@ public class CuratorWatcherTest extends CuratorBaseOperations {
             public void process(WatchedEvent event) {
                 if (event.getType() == Event.EventType.NodeDataChanged){
                     log.info("node {} data changed!",event.getPath());
-
-
                 }
             }
         }).forPath(path);
